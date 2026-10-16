@@ -33,3 +33,9 @@ TypeScript and production build checks pass. Database isolation and read/write t
 ## Integrations
 
 Website forms, bookings and WhatsApp are not connected yet. They require an authenticated server endpoint/Edge Function, validation, ownership assignment, rate limits and duplicate rules. Do not disable row-level security or expose privileged keys to add integrations.
+
+## Research workspace
+
+Research → Signals shows evidence, qualification, fit and editable outreach drafts. Add a source accepts a public URL, pasted text or both. Requests are processed by the connected ChatGPT hourly research inbox task, not by the browser or an instant API. Inaccessible social posts require pasted context. Inbox shows progress and results. Your voice saves a private brief and examples used by future drafts. The daily prospect task also writes these research fields. Tasks require the Supabase connection to remain available. No messages are sent automatically.
+
+New private tables and policies are recorded in supabase/migrations/20261016222057_prospect_research_workspace.sql. Client access requires an approved member and matching owner; only the processor can change request status. Never commit lead records or server credentials.
