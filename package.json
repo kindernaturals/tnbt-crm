@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build"
+    "build": "tsc --noEmit && vite build",
+    "build:pages": "npm run build && node scripts/prepare-pages.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.118.0",

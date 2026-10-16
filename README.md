@@ -1,6 +1,6 @@
 # TNBT Digital CRM
 
-Private source repository for a standalone marketing leads CRM. React + Vite frontend, Supabase database and authentication, ready for static hosting on KnownHost. No WordPress dependencies.
+Private source repository for a standalone marketing leads CRM. React + Vite frontend, Supabase database and authentication, published using GitHub Pages. No WordPress dependencies.
 
 ## Features
 
@@ -16,11 +16,11 @@ The browser uses only the project's publishable key. This key is intentionally p
 
 Node 22 or newer. Run `npm ci` then `npm run build`. Output is in `dist/`. Optional project overrides are documented in `.env.example`; the configured default is the existing business Supabase project. Dependencies are pinned and the lockfile is committed.
 
-## KnownHost deployment
+## GitHub Pages deployment
 
-Create a folder named `crm` inside the live TNBT domain's document root. Upload the contents of `dist/` into that folder, keeping `index.html` and `assets/` together. Open `https://tnbtdigital.com/crm/`. It must use HTTPS. No repository source, `.env`, SQL files or passwords need to be uploaded to the web root.
+The generated site is committed in `docs/`. In repository Settings → Pages, select **Deploy from a branch**, **main**, **/docs**, then save. GitHub Free requires this repository to be public. The website requires Supabase sign-in, and lead records are protected by database policies regardless of code visibility.
 
-A private repository cannot use GitHub Pages on GitHub Free. The included workflow checks/builds and supplies a download artifact; it does not publish or change repository visibility.
+For future changes run `npm run build:pages`, then commit the source and generated `docs/` together. The build workflow is a source check and downloadable artifact; GitHub's branch-based Pages deployment publishes `docs/`.
 
 ## Database
 
@@ -28,7 +28,7 @@ The migration in `supabase/migrations/` creates the CRM schema and policies. It 
 
 ## Verification
 
-TypeScript and production build checks pass. Database isolation and read/write tests are run with rollback-only test data. User confirmation of password sign-in, and a browser check of the live KnownHost deployment, remain required.
+TypeScript and production build checks pass. Database isolation and read/write tests are run with rollback-only test data. User confirmation of password sign-in, and a browser check of the live GitHub Pages deployment, remain required.
 
 ## Integrations
 
