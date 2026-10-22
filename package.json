@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
-    "build:pages": "npm run build && node scripts/prepare-pages.mjs"
+    "build:pages": "npm run build && node scripts/prepare-pages.mjs",
+    "test": "tsc src/outreach.ts --target es2022 --module es2022 --outDir .test-build --skipLibCheck && node tests/outreach.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.118.0",
